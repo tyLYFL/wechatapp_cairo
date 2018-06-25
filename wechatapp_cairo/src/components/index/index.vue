@@ -409,8 +409,7 @@ export default {
 						orderType: '3',
 						payType: '2',
 						clientType: '3',
-						// totalFee: '2000000',
-						totalFee: 1,
+						totalFee: '2000000',
 						body: '疯蜜会员费',
 						shareType: that.currentTab,
 						investPeople: that.investPeople,
@@ -426,7 +425,7 @@ export default {
 					.then((res) => {
 						console.log(res);
 						if (res.data.stats == "1"){
-							window.location.href = res.data.mwebUrl+'&redirect_url=https://t.fmsecret.cn/fm-html5/FMAPP/fmxiaotou/index.html';
+							window.location.href = res.data.mwebUrl+'&redirect_url=https://fmb.fmsecret.cn/fm-html5/FMAPP/fmxiaotou/index.html';
 						    this.information2();
 						}else{
 							that.TipsShow = true

@@ -60,11 +60,7 @@ export default {
       this.newsID =newsID;
      if(this.token==''||this.token==null)
 			{	
-				this.TipsShow = true;
-				 this.Tipstitle = '请你登录';
-				 setTimeout(function(){
 				that.$router.push({path:'/login'})
-				 },3000)
 			}
        this.axios({
         method: "POST",

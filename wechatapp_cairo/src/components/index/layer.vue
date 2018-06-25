@@ -8,7 +8,7 @@
            <button @click="layerHide()">{{LayerData1.but_l}}</button>
            
            <button @click="joinshow()">
-               <a href="https://t.fmsecret.cn/fm-html5/FMAPP/fmxiaotou/index.html">
+               <a href="https://fmb.fmsecret.cn/fm-html5/FMAPP/fmxiaotou/index.html">
                {{LayerData1.but_r}}
                </a>
                </button>  

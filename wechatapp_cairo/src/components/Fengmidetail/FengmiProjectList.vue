@@ -405,21 +405,8 @@ export default {
       }
       console.log(this.like)
     },
-   
-   editInvestProjectCollect(val){
-   this.axios.post(this.globalData.API[0]+'invest/editInvestProjectCollect', Qs.stringify({
-            investId:this.newsID,
-            tokenId:this.token,
-            enabled:val,
-     }))
-    .then((res)=>{
-          console.log(res)
-    })
-    .catch((err)=>{
-        console.log(err);
-    })
-
-       this.axios.post(this.globalData.API[0]+'invest/investDetail', Qs.stringify({
+   investDetail(){
+     this.axios.post(this.globalData.API[0]+'invest/investDetail', Qs.stringify({
             investId:this.newsID,
             tokenId:this.token,
      }))
@@ -440,6 +427,21 @@ export default {
     .catch((err)=>{
         console.log(err);
     })
+   },
+   editInvestProjectCollect(val){
+   this.axios.post(this.globalData.API[0]+'invest/editInvestProjectCollect', Qs.stringify({
+            investId:this.newsID,
+            tokenId:this.token,
+            enabled:val,
+     }))
+    .then((res)=>{
+          console.log(res)
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+
+     this.investDetail();
 
       this.TipsShow = true
      if(this.like==true){
@@ -470,35 +472,15 @@ export default {
 						voteType:val
        }))
       .then((res)=>{
+          this.investDetail();
           console.log(res)
      })
     .catch((err)=>{
         console.log(err);
       })
 
- 
-   this.axios.post(this.globalData.API[0]+'invest/investDetail', Qs.stringify({
-            investId:this.newsID,
-            tokenId:this.token,
-     }))
-    .then((res)=>{
-          this.findProjectPra=res.data.project;
-          if (this.findProjectPra!=null){
-            var Time = this.util.formatTime2(new Date(this.findProjectPra.createTime));
-            var reserveFinishDeadline = this.util.dateCount(this.findProjectPra.reserveFinishTime)
-            var reserveFinishTime = this.util.dateCount(this.findProjectPra.reserveFinishTime)
-            var holdRatios = this.findProjectPra.holdRatios*100;
-            holdRatios = holdRatios.toFixed(2);
-            this.findProjectPra.createTime = Time;
-            this.findProjectPra.reserveFinishTime = reserveFinishTime;
-            this.findProjectPra.reserveFinishDeadline = reserveFinishDeadline;
-            this.findProjectPra.holdRatios = holdRatios;
-            this.ztoustate=this.findProjectPra.isVote
-        }
-    })
-    .catch((err)=>{
-        console.log(err);
-    })
+    
+    this.investDetail();
        }
        else{
        this.TipsShow = true

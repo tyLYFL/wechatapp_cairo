@@ -375,8 +375,7 @@
 						orderType: '4',
 						payType: '2',
 						clientType: '3',
-						totalFee: 1,
-						// totalFee: that.fmFinance.financeCost*100,
+						totalFee: that.fmFinance.financeCost*100,
 						body: '单次课程体验费',
 						investId: that.newsID,
 						investPeople: that.investPeople,
@@ -392,7 +391,7 @@
 					.then((res) => {
 						console.log(res);
 						if(res.data.stats == "1") {
-							window.location.href = res.data.mwebUrl + '&redirect_url=https://t.fmsecret.cn/fm-html5/FMAPP/fmxiaotou/index.html';
+							window.location.href = res.data.mwebUrl + '&redirect_url=https://fmb.fmsecret.cn/fm-html5/FMAPP/fmxiaotou/index.html';
 						this.findFinanceDetails();
 						that.Reserveinformation()
 						that.butstatus = 1;

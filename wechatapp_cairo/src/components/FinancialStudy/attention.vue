@@ -172,4 +172,7 @@ position: relative;
 .Big_box{
     margin-top:Remwidth(102);
 }
+.box2{
+    margin-bottom: 20px;
+}
 </style>

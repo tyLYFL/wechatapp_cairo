@@ -5,8 +5,8 @@ var globalData = {
     isFmInvestor:'',
     token:'',
     openId:'',
-    API: [ 'https://t.fmsecret.cn/investment-app-api/','https://fmb.fmsecret.cn/investment-app-api/', 'https://fmb.fmsecret.cn/','http://kzf.tunnel.qydev.com/investment-app-api/',
-      'https://fmb.fmsecret.cn/investment-app-api/'],
+    API: [ 'https://fmb.fmsecret.cn/investment-app-api/','https://fmb.fmsecret.cn/investment-app-api/', 'https://fmb.fmsecret.cn/','http://kzf.tunnel.qydev.com/investment-app-api/',
+      'https://t.fmsecret.cn/investment-app-api/'],
   }
   return globalData;
 }
