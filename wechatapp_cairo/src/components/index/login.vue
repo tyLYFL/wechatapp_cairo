@@ -1,6 +1,6 @@
 <template>
+    <!-- 用户登录 -->
      <div class="login">
-
    <div class="username" >
     <h1 class="H1">用户登录</h1>
      <form autocomplete="off">
@@ -16,6 +16,7 @@
 
 <script>
 import Tips from '../index/Tips'
+import { mapState,mapActions} from 'vuex';ss
 export default {
     data(){
         return{
@@ -28,7 +29,7 @@ export default {
       Tips
       },
      created(){
-     localStorage.setItem("fromShow", 0);	
+     this.FhideAction();
       },
     mounted(){
 
@@ -88,8 +89,6 @@ export default {
       ) 
     })
     },
-    created(){
-    },
     methods:{
         RiskShow(i){
         this.TipsShow = i;
@@ -97,7 +96,7 @@ export default {
         signin(){
             this.$router.replace({path:'/signin'})
         },
-    
+        ...mapActions(['FhideAction'])
     }
 }
 </script>

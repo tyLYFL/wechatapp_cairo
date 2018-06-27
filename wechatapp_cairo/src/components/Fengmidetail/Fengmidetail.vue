@@ -39,6 +39,7 @@
 import FengmiProject from '../Fengmidetail/FengmiProject';
 import roadShow from '../Fengmidetail/roadShow';
 import Qs from 'qs';
+import { mapState,mapActions} from 'vuex';
 export default {
   
   data () {
@@ -55,7 +56,8 @@ export default {
     roadShow
   },
   created(){
-    localStorage.setItem("fromShow", 0);	
+    this.FhideAction();
+
     // 请求可投项目
      this.axios.post(this.globalData.API[0]+'invest/investList', Qs.stringify({
       isFirst: 0,//是否显示到首页：0否，1是
@@ -93,7 +95,8 @@ export default {
   methods:{
     SwitchNav(val){
          this.Nav = val;
-    }
+    },
+    ...mapActions(['FhideAction'])
   }
 }
 </script>

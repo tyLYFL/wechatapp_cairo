@@ -1,4 +1,5 @@
 <template>
+<!-- 用户注册 -->
      <div class="siginin">
    <div class="username">
      <h1 class="H1">用户注册</h1>
@@ -21,6 +22,7 @@
 <script>
 import Tips from '../index/Tips'
 import Qs from 'qs';
+import { mapState,mapActions} from 'vuex';
 export default {
     data(){
         return{
@@ -141,30 +143,6 @@ export default {
         }
         })
 
-
-
-
-
-
-        //  init();
-        //  function init(){
-        //   $.ajax(
-        //   {
-        //    type: "POST",
-        //    url: that.globalData.API[0]+'token/',
-        //    data:
-        //    {
-        //    },
-        //    success:function(res){
-        //     that.tk = res.token
-        //    },
-        //    error:function(err){
-        //       console.log(err)
-        //    }}) }
-        // $('.file').on('change',function(){
-        //     that.ImguRL=URL.createObjectURL($(this)[0].files[0])
-        //     $(".imgs").attr("src",that.ImguRL);
-        // })
         }
 }
 </script>

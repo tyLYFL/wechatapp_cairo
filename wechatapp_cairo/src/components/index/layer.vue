@@ -1,4 +1,6 @@
 <template>
+   <!-- 大提示框组件 -->
+
     <div class="layer">
      <div class="layerBox">
          <h1>{{LayerData1.H3}}</h1>
@@ -6,7 +8,6 @@
          <p>{{LayerData1.p2}}</p>
          <div class="but_box">
            <button @click="layerHide()">{{LayerData1.but_l}}</button>
-           
            <button @click="joinshow()">
                <a href="https://fmb.fmsecret.cn/fm-html5/FMAPP/fmxiaotou/index.html">
                {{LayerData1.but_r}}
@@ -18,6 +19,7 @@
     </div>
 </template>
 <script>
+import { mapState,mapActions} from 'vuex';
 export default {
     data(){
         return{
@@ -33,8 +35,9 @@ export default {
         },
         joinshow(){
             this.$emit('layerh',false)
-            sessionStorage.setItem("fromShow", 1);	
-        }
+            this.FshowAction()
+        },
+        ...mapActions(['FshowAction'])
     }
 }
 </script>

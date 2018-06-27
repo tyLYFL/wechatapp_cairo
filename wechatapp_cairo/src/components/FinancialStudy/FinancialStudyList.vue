@@ -272,7 +272,7 @@ position: relative;
   color: #e6ad14;
   width: Remwidth(120);
   height:Remwidth(120);
-  font-size:Remwidth(10);
+  font-size:Remwidth(15);
   position: relative;
 }
 .circleNum{
@@ -302,8 +302,8 @@ vertical-align :middle;
 height:Remwidth(40);
 width:Remwidth(50);
 position:absolute;
-bottom:Remwidth(12);
-right:Remwidth(16);
+bottom:Remwidth(10);
+right:Remwidth(24);
 color:#9B9B9B;
 text-align:center;
 }

@@ -20,7 +20,7 @@
 <script>
 import FinancialStudyList from '../FinancialStudy/FinancialStudyList';
 import Qs from 'qs';
-
+import { mapState,mapActions} from 'vuex';
 export default {
   data () {
     return {
@@ -30,7 +30,7 @@ export default {
     }
   },
   created(){
-      localStorage.setItem("fromShow", 0);	
+      this.FhideAction();
 
       // 请求财商列表信息
     this.axios({
@@ -72,6 +72,7 @@ export default {
         }
         return paizhi;
    },
+   ...mapActions(['FhideAction'])
 },
 mounted(){
 

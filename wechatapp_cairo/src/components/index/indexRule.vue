@@ -1,4 +1,5 @@
 <template>
+   <!-- 小投规则 -->
   <div class="indexRule">
     <img src="http://7xoor9.com1.z0.glb.clouddn.com/rule3.png?v=0.6314308122153189" class="ruleImg">
    </div>

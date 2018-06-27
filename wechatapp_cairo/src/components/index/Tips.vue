@@ -1,4 +1,5 @@
 <template>
+<!-- 提示组件 -->
     <div class="Tips">
      <div class="TipsT">{{titlePlop}}</div>
     </div>

@@ -1,12 +1,7 @@
 <template>
   <div class="index">
  <div class="index—Box">
-   <!-- <div>111{{token}}</div>
-    <div>111{{uid}}</div>
-      <div>111{{nickname}}</div>
-       <div>111{{headpic}}</div>
-      <div>111{{ isFmInvestor}}</div> -->
-   
+
  <!--开通学员之前的头部版本-->
  <div class='rolltop' v-if="isFmInvestor==0" >
 <div class='navImg'>
@@ -142,8 +137,8 @@
 							</router-link>
 						</div>
 						<button class='btnt' v-if="isFmInvestor==0" @click="openShow(0)">
-申请入营
-</button>
+						申请入营
+						</button>
 
 						<div class='colorye' v-else>
 							<router-link to="/FinancialStudy">
@@ -316,20 +311,18 @@ import Qs from 'qs';
 export default {
   data () {
     return {
-     globalData:this.util.globalData(),
+     globalData:this.util.globalData(),     //全局数据
      token:'',
-     HBstate:false,
-     loginstatus:false,
-     information:[],
-     isFmInvestor:0,
-     investPeople: '',
-     contactWay: '',
-     currentTab: 1,
-		 butstatus: 0,
-    fromboardShow: false,
-    TipsShow: false,
-    Tipstitle: '',
-    endTime:'',
+     HBstate:false,                        //海报显示状态
+     information:[],                       //用户信息
+     isFmInvestor:0,                       //会员状态
+     investPeople: '',                     //联系人
+     contactWay: '',                       //联系方式
+     currentTab: 1,                        //支付面板会员状态
+     fromboardShow: false,                 //支付面板显示状态
+     TipsShow: false,
+     Tipstitle: '',
+     endTime:'',                           //结束时间
     }
   },
   components:{
@@ -337,13 +330,14 @@ export default {
     Tips
   },
   methods:{
-    information2(){
-    // 获取用户信息
-    var that = this;
-    				this.axios.post(that.globalData.API[0] + 'my/information', Qs.stringify({
+
+			// 获取用户信息
+			information2(){
+			var that = this;
+    		this.axios.post(that.globalData.API[0] + 'my/information', Qs.stringify({
               tokenId: that.token
-					}))
-					.then((res) => {
+			}))
+			.then((res) => {
             console.log(res)
             localStorage.setItem("isFmInvestor", res.data.information.isFmInvestor);
             this.endTime = that.util.dateCount(res.data.information.endTime);	
@@ -353,8 +347,9 @@ export default {
 					.catch((err) => {
 						console.log(err);
 					})
-},
-    			openTips() {
+			},
+
+    		openTips() {
 				this.TipsShow = true;
 				this.Tipstitle = '暂未开通...'
 			},
@@ -378,11 +373,10 @@ export default {
 
 				this.fromboardShow = false
 			},
+            // 支付
 			wecahtPay() {
-        var that = this;
-        console.log(that.investPeople)
-//				window.location.href = this.globalData.API[0] + 'invest/wechatUnifiedorder?orderType=3&payType=2&clientType=3&totalFee=2000000&body=疯蜜会员费&shareType='+this.currentTab+'&investPeople='+this.investPeople+'&contactWay='+this.contactWay+'&mwebUrl=https://t.fmsecret.cn/fm-html5/FMAPP/fmxiaotou/index.html'
-				if (that.currentTab == 1){
+             var that = this;
+			if (that.currentTab == 1){
 					if (that.investPeople == ''){
 						that.TipsShow = true;
 						that.Tipstitle = '联系人不能为空！';
@@ -430,32 +424,29 @@ export default {
 						}else{
 							that.TipsShow = true
 							that.Tipstitle = res.data.msg
-						}
-//						
+						}			
 					})
 					.catch((err) => {
 						console.log(err);
 					})
 
-//				this.fromboardShow = false
 			},
-    openHB(){
-    this.HBstate=true
-    },
-    closeHB(){
-    this.HBstate=false
-    },
-    tiao(){
-      if(this.token==null||this.token==''){
-      //     window.location.href= "https://t.fmsecret.cn/investment-app-api/user/weiXinAuthorizationAddress?back_url=https://t.fmsecret.cn/fm-html5/FMAPP/fmxiaotou/index.html";
-           
-           this.$router.push({path:'/login'})
-      }
-      else{
-        return
-      }
+			openHB(){
+			this.HBstate=true
+			},
+			closeHB(){
+			this.HBstate=false
+			},
+			tiao(){
+			if(this.token==null||this.token==''){
+				this.$router.push({path:'/login'})
+			}
+			else{
+				return
+			}
     
-    },
+	},
+	// url参数获取
     getQueryString(parName) {
     var str=parName.toLowerCase()+"=";  
     var gvalue="";  
@@ -473,21 +464,25 @@ export default {
   created(){
     var that = this;
     var token = localStorage.getItem("token")
-    that.token = token;
-    console.log(that.token)
-  if(this.token==null||this.token==''){
-     return false
-  }
-  else{
-    this.information2();
-  }
-  },
+		that.token = token;
+		console.log(that.token)
+	if(this.token==null||this.token==''){
+		return false
+	}
+	else{
+		this.information2();
+	}
+	},
   mounted(){
 			var that = this;
 			var fromShow =  localStorage.getItem("fromShow");
+			console.log('fromShow',fromShow)
 			this.information2();
 			if(fromShow==1){
 			that.fromboardShow = true
+			}
+			else{
+			that.fromboardShow = false
 			}
 			$('#investPeople').on("keyup", function() {
 				that.investPeople = $(this).val();

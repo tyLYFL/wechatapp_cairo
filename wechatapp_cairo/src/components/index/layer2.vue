@@ -1,4 +1,5 @@
 <template>
+   <!-- 大提示框组件2 -->
     <div class="layer">
      <div class="layerBox">
          <h1>{{LayerData2.H3}}</h1>

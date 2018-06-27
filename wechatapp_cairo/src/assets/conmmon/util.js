@@ -1,6 +1,6 @@
 
 function globalData(){
-var globalData = {
+const globalData = {
     userInfo: null,
     isFmInvestor:'',
     token:'',
