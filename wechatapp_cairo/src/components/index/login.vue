@@ -16,7 +16,7 @@
 
 <script>
 import Tips from '../index/Tips'
-import { mapState,mapActions} from 'vuex';ss
+import { mapState,mapActions} from 'vuex'
 export default {
     data(){
         return{
